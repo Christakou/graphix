@@ -10,7 +10,15 @@ include_directories(SYSTEM ./include/ ./include/GLFW)
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
 # Add the executable
-add_executable(graphix src/main.cpp src/glad.c)
+add_executable(graphix src/main.cpp src/glad.c
+        src/graphics/Shader.cpp
+        src/graphics/Shader.h
+        src/graphics/EBO.cpp
+        src/graphics/EBO.h
+        src/graphics/VBO.cpp
+        src/graphics/VBO.h
+        src/graphics/VAO.cpp
+        src/graphics/VAO.h)
 
 # Link GLFW library
 target_link_libraries(graphix glfw3)
