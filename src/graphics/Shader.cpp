@@ -8,8 +8,12 @@
 
 Shader::Shader(const char* vertexFile, const char* fragmentfile) {
 
-    const char* vertexSource = _get_file_contents(vertexFile).c_str();
-    const char* fragmentSource = _get_file_contents(fragmentfile).c_str();
+
+    const std::string vertexFullPath = std::string(PROJECT_ROOT_DIR) + "/shaders/" + std::string(vertexFile);
+    const std::string fragmentFullPath = std::string(PROJECT_ROOT_DIR) + "/shaders/" + std::string(fragmentfile);
+
+    const char* vertexSource = _get_file_contents(vertexFullPath).c_str();
+    const char* fragmentSource = _get_file_contents(fragmentFullPath).c_str();
 
     // Create Vertex Shader Object and get its reference
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -41,7 +45,7 @@ void Shader::Delete() const {
     glDeleteProgram(ID);
 }
 
-std::string Shader::_get_file_contents(const char* filename)
+std::string Shader::_get_file_contents(const std::string &filename)
 {
     if (std::ifstream fileInputStream(filename, std::ios::binary); fileInputStream)
     {

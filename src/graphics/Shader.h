@@ -17,7 +17,7 @@ public:
     void Activate() const;
     void Delete() const;
 private:
-    static std::string _get_file_contents(const char* filename);
+    static std::string _get_file_contents(const std::string &filename);
 
 };
 #endif

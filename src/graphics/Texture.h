@@ -8,7 +8,7 @@ class Texture
 public:
     Texture(const char* filePath, GLint targetTexture, GLint textureUnit);
     unsigned char* bytes = nullptr;
-    GLuint ID;
+    GLuint ID{};
 
     void Bind() const;
 

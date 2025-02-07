@@ -1,12 +1,21 @@
 #include "Texture.h"
+
+#include <iostream>
+#include <ostream>
+#include <string>
 #include<stb/stb_image.h>
 #include <glad/glad.h>
 
 Texture::Texture(const char* filePath, GLint targetTexture, GLint textureUnit) {
 
+    std::string completeFilePath =  std::string(PROJECT_ROOT_DIR) + "/textures/" + std::string(filePath);
     m_targetTexture = targetTexture;
     int widthImg, heightImg, numColCh;
-    unsigned char* bytes = stbi_load(filePath, &widthImg, &heightImg, &numColCh, 0);
+    unsigned char* bytes = stbi_load(completeFilePath.c_str(), &widthImg, &heightImg, &numColCh, 0);
+
+    if (!bytes) {
+        std::cerr << "Error loading texture from " << completeFilePath << std::endl;
+    }
 
     glGenTextures(1, &ID);
     glActiveTexture(textureUnit);
