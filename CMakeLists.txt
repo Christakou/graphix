@@ -20,7 +20,9 @@ add_executable(graphix src/main.cpp src/glad.c
         src/graphics/VAO.cpp
         src/graphics/VAO.h
         src/graphics/Camera.cpp
-        src/graphics/Camera.h)
+        src/graphics/Camera.h
+        src/graphics/Texture.cpp
+        src/graphics/Texture.h)
 
 # Link GLFW library
 target_link_libraries(graphix glfw3)
