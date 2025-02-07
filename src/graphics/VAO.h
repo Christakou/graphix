@@ -12,7 +12,7 @@ public:
     VAO();
 
     // Links a VBO to the VAO using a certain layout
-    static void LinkAttrib(VBO& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, void* offset);
+    static void LinkAttrib(VBO& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, const void* offset);
     void Bind() const;
     void Unbind() const;
     void Delete() const;

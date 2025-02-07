@@ -43,8 +43,7 @@ void Shader::Delete() const {
 
 std::string Shader::_get_file_contents(const char* filename)
 {
-    std::ifstream fileInputStream(filename, std::ios::binary);
-    if (fileInputStream)
+    if (std::ifstream fileInputStream(filename, std::ios::binary); fileInputStream)
     {
         std::string contents;
 
