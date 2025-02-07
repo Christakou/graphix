@@ -14,8 +14,12 @@ public:
     GLuint ID;
     Shader(const char* vertexFile, const char* fragmentFile);
 
+    static void checkCompileErrors(GLuint shader, std::string type);
+
     void Activate() const;
+
     void Delete() const;
+
 private:
     static std::string _get_file_contents(const std::string &filename);
 
